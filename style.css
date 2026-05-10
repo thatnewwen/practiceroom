@@ -1,0 +1,161 @@
+:root {
+  --beige: #e2d9d3;
+}
+
+#event-table {
+  width: 100%;
+  font-size: 14px;
+}
+
+#event-table th {
+  text-align: left;
+  padding-bottom: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #bc192d;
+  text-transform: uppercase;
+}
+
+#event-table p{
+  font-size: 10px;
+  max-width: 200px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+td {
+  min-width: 150px;
+  border-top: 1px solid #bf1e2d;
+  vertical-align: top;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-right: 5px;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--beige);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  color: #bf1e2d;
+  font-size: 22px;
+  padding: 0;
+  margin: 10px;
+  border-radius: 0;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(-90deg);
+}
+
+.col {
+  background: #e2d9d3;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  border-right: 2px solid #bf1e2d;
+  height: -webkit-fill-available;
+  justify-content: space-between;
+  width: 200px;
+  align-items: center;
+}
+
+#main {
+  padding: 20px 20px 20px 220px;
+  height: 100vh;
+  width: -webkit-fill-available;
+  overflow: scroll;
+}
+
+#splash {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 150px;
+  height: 200px;
+  position: relative;
+  border-radius: 0px 50px 0px 0px;
+}
+
+.col span {
+  color: #bf1e2d;
+  text-align: justify;
+  font-size: 12px;
+  max-width: 150px;
+  padding-bottom: 20px;
+}
+
+.practicep {
+  width: 125px;
+  object-fit: contain;
+}
+
+.practicer{
+  width: 38px;
+  object-fit: contain;
+  position: absolute;
+  transition: 0.3s ease;
+}
+
+.card {
+  width: 120px;
+}
+
+@media (max-width: 750px) {
+  body {
+    flex-direction: column;
+  }
+
+  h1 {
+    transform: rotate(0deg);
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .practicep{
+    width: 45px;
+    margin-left: 20px;
+  }
+
+  .col {
+    display: flex;
+  position: relative;
+  flex-direction: row;
+  border-bottom: 2px solid #bf1e2d;
+  height: auto;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 20px 0;
+  }
+
+  .col span {
+    color: #bf1e2d;
+  text-align: justify;
+  font-size: 10px;
+  max-width: 99px;
+  padding-bottom: 0;
+  padding-right: 20px;
+  }
+
+  #main {
+    padding: 20px;
+  }
+
+  #splash {
+  width: auto;
+  height: auto;
+}
+}
