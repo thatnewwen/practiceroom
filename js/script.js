@@ -11,8 +11,9 @@ $(document).ready(function(){
     }
   }).then(function(response){
     events = response.data.results
-    console.log(events)
+
     var now = new Date();
+
     var pastEvents = [];
     var futureEvents = [];
     events.forEach(element => {
@@ -23,54 +24,72 @@ $(document).ready(function(){
       }
     });
       const tableBody = document.querySelector('#event-table');
+      const pastEventsGrid = document.querySelector('#past-events');
 
       // Loop through the rows (starting from row 1 to skip headers)
       for (let i = 0; i < futureEvents.length; i++) {
-          const row = document.createElement('tr');
-          // Loop through each cell in the row and create a table cell for each
-          const cellElement = document.createElement('td');
-          
-          cellElement.innerHTML =  
-          `
-          <div class="title">${futureEvents[i].field_5164329}</div>
-          `;
-          row.appendChild(cellElement);
-          
-          const cellElement3 = document.createElement('td');
-          cellElement3.textContent = futureEvents[i].field_5164393[0].value;
-          row.appendChild(cellElement3);
+        const row = document.createElement('tr');
+        // Loop through each cell in the row and create a table cell for each
+        const cellElement = document.createElement('td');
+        
+        cellElement.innerHTML =  
+        `
+        <div class="title">${futureEvents[i].field_5164329}</div>
+        `;
+        row.appendChild(cellElement);
+        
+        const cellElement3 = document.createElement('td');
+        cellElement3.textContent = futureEvents[i].field_5164393[0].value;
+        row.appendChild(cellElement3);
 
-          const cellElement6 = document.createElement('td');
-          cellElement6.textContent = new Date(futureEvents[i].field_5164395).toLocaleString();
-          row.appendChild(cellElement6);
-          
-          const cellElement4 = document.createElement('td');
-          cellElement4.textContent = futureEvents[i].field_5164399[0].value;
-          row.appendChild(cellElement4);
-          
-          const cellElement5 = document.createElement('td');
-          if (futureEvents[i].field_5164403[0]) {
-            image = futureEvents[i].field_5164403[0]?.url;
-            cellElement5.innerHTML =  
-            `
-            <img class="card" src=${image}>
-            `;
-          } else {
-            cellElement5.innerHTML =  
-            `
-            <img class="card" src="./assets/pr-logo.png">
-            `;
-          }
-          row.appendChild(cellElement5);
-          
-          const cellElement2 = document.createElement('td');
-          cellElement2.innerHTML =  
+        const cellElement6 = document.createElement('td');
+        cellElement6.textContent = `${Intl.DateTimeFormat(navigator.language, { weekday: 'short'}).format(new Date(futureEvents[i].field_5164395))} ${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(futureEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(futureEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { year: '2-digit'}).format(new Date(futureEvents[i].field_5164395))} @ ${Intl.DateTimeFormat('en', { hour: 'numeric' }).format(new Date(futureEvents[i].field_5164395))}`
+        row.appendChild(cellElement6);
+        
+        const cellElement4 = document.createElement('td');
+        cellElement4.textContent = futureEvents[i].field_5164399[0].value;
+        row.appendChild(cellElement4);
+        
+        const cellElement5 = document.createElement('td');
+        if (futureEvents[i].field_5164403[0]) {
+          image = futureEvents[i].field_5164403[0]?.url;
+          cellElement5.innerHTML =  
           `
-          <p>${futureEvents[i].field_5164330}</p>
+          <img class="card" src=${image}>
           `;
-          row.appendChild(cellElement2);
-          // Append the row to the table
-          tableBody.appendChild(row);
+        } else {
+          cellElement5.innerHTML =  
+          `
+          <img class="card" src="./assets/pr-logo.png">
+          `;
+        }
+        row.appendChild(cellElement5);
+        
+        const cellElement2 = document.createElement('td');
+        cellElement2.innerHTML =  
+        `
+        <p>${futureEvents[i].field_5164330}</p>
+        `;
+        row.appendChild(cellElement2);
+        // Append the row to the table
+        tableBody.appendChild(row);
+      }
+
+      // Loop through the rows (starting from row 1 to skip headers)
+      for (let i = (pastEvents.length - 1); i >= 0; i--) {
+        const cellElement = document.createElement('div');
+        cellElement.setAttribute("class", "card-container");
+        
+        image = pastEvents[i].field_5164403[0]?.url;
+        cellElement.innerHTML =  
+        `
+        <img src="${image}">
+        <div><b>${pastEvents[i].field_5164329}</b></div>
+        <div>${pastEvents[i].field_5164393[0].value}</div>
+        <div>${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { year: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}</div>
+        `;
+        
+        pastEventsGrid.appendChild(cellElement);
       }
   })
 }); 

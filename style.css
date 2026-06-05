@@ -5,6 +5,8 @@
 #event-table {
   width: 100%;
   font-size: 14px;
+  overflow: scroll;
+  display: table;
 }
 
 #event-table th {
@@ -58,6 +60,12 @@ h1 {
   transform: rotate(-90deg);
 }
 
+h2 {
+  color: #bf1e2d;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
 .col {
   background: #e2d9d3;
   display: flex;
@@ -75,6 +83,10 @@ h1 {
   height: 100vh;
   width: -webkit-fill-available;
   overflow: scroll;
+}
+
+#past-events {
+  padding-bottom: 200px;
 }
 
 #splash {
@@ -112,9 +124,29 @@ h1 {
   width: 120px;
 }
 
+.card-container {
+  width: 200px;
+  padding: 5px 10px 10px 0px;
+  font-size: 10px;
+}
+
+.card-container img {
+  width: 200px;
+  padding-bottom: 5px;
+}
+
+#past-events {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 750px) {
   body {
     flex-direction: column;
+  }
+
+  #event-table {
+    display: block;
   }
 
   h1 {
@@ -155,7 +187,14 @@ h1 {
   }
 
   #splash {
-  width: auto;
-  height: auto;
-}
+    width: auto;
+    height: auto;
+  }
+
+  #past-events {
+    width: 100%;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    padding-bottom: 20px;
+  }  
 }
