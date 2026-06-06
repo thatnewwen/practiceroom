@@ -43,7 +43,7 @@ $(document).ready(function(){
         row.appendChild(cellElement3);
 
         const cellElement6 = document.createElement('td');
-        cellElement6.textContent = `${Intl.DateTimeFormat(navigator.language, { weekday: 'short'}).format(new Date(futureEvents[i].field_5164395))} ${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(futureEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(futureEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { year: '2-digit'}).format(new Date(futureEvents[i].field_5164395))} @ ${Intl.DateTimeFormat('en', { hour: 'numeric' }).format(new Date(futureEvents[i].field_5164395))}`
+        cellElement6.textContent = `${Intl.DateTimeFormat(navigator.language, { weekday: 'short'}).format(new Date(futureEvents[i].field_5164395))} ${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(futureEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { day: '2-digit'}).format(new Date(futureEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { year: '2-digit'}).format(new Date(futureEvents[i].field_5164395))} @ ${Intl.DateTimeFormat('en', { hour: 'numeric' }).format(new Date(futureEvents[i].field_5164395))}`
         row.appendChild(cellElement6);
         
         const cellElement4 = document.createElement('td');
