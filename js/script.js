@@ -86,7 +86,7 @@ $(document).ready(function(){
         <img src="${image}">
         <div><b>${pastEvents[i].field_5164329}</b></div>
         <div>${pastEvents[i].field_5164393[0].value}</div>
-        <div>${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { year: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}</div>
+        <div>${Intl.DateTimeFormat(navigator.language, { month: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { day: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}.${Intl.DateTimeFormat(navigator.language, { year: '2-digit'}).format(new Date(pastEvents[i].field_5164395))}</div>
         `;
         
         pastEventsGrid.appendChild(cellElement);
